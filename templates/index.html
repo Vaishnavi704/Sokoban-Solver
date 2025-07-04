@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sokoban Solver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+    function validateForm() {
+        const board = document.forms["sokobanForm"]["board"].value.trim();
+        if (!board) {
+            alert("Please enter the Sokoban board before solving.");
+            return false;
+        }
+        document.getElementById('calculating-msg').style.display = 'block';
+        return true;
+    }
+
+    function toggleMode() {
+        document.body.classList.toggle('light-mode');
+    }
+</script>
+
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleMode()">Toggle Light/Dark</button>
+
+
+    <div class="container">
+
+        <h1>Sokoban Puzzle Solver</h1>
+
+        <div class="box about">
+    <h2>What is Sokoban?</h2>
+    <p>
+        Sokoban is a classic grid-based puzzle game where the player pushes boxes onto designated goal positions. 
+        The challenge lies in strategically moving the boxes without getting stuck, as the player can only push 
+        (not pull) one box at a time and must navigate around walls.
+    </p>
+</div>
+
+
+        <div class="box notations">
+            <h2>🧩 Symbol Legend</h2>
+            <ul>
+                <li><b>#</b> – Wall</li>
+                <li><b>.</b> – Goal</li>
+                <li><b>$</b> – Box</li>
+                <li><b>@</b> – Player</li>
+                <li><b>*</b> – Box on Goal</li>
+                <li><b>+</b> – Player on Goal</li>
+                <li><b>&nbsp;</b> – Empty Space</li>
+            </ul>
+        </div>
+
+        <form name="sokobanForm" method="post" onsubmit="return validateForm();">
+            <div class="box problem">
+                <h2>📝 Enter Puzzle</h2>
+                <textarea name="board" placeholder="e.g.&#10;  #####&#10;### @ #&#10;#.$  #&#10;#####"></textarea>
+                <button class="btn" type="submit">Solve</button>
+            </div>
+        </form>
+
+        <div id="calculating-msg" class="box calculating" style="display: none;">
+            ⏳ Calculating path...
+        </div>
+
+        {% if solution %}
+        <div class="box solution">
+            <h2>✅ Solution</h2>
+            <p>{{ solution }}</p>
+        </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>

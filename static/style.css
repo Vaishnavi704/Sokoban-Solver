@@ -1,0 +1,97 @@
+/* Base styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png') no-repeat center center fixed;
+    background-color: #000;
+    background-size: cover;
+    transition: background 0.5s ease, color 0.5s ease;
+    color: #fff;
+}
+
+.container {
+    padding: 30px;
+    max-width: 800px;
+    margin: auto;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Box styling */
+.box {
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Text areas */
+textarea {
+    width: 100%;
+    height: 160px;
+    font-family: monospace;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #666;
+    background: #222;
+    color: #fff;
+}
+
+/* Button styling */
+.btn {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: #2196F3;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.btn:hover {
+    background: #1769aa;
+}
+
+/* Solution text */
+.solution p {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: lightgreen;
+}
+
+/* Toggle button */
+.toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background-color: #444;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* Light mode overrides */
+body.light-mode {
+    background-color: #f4f4f4;
+    background-image: none;
+    color: #111;
+}
+
+body.light-mode .box {
+    background-color: rgba(255, 255, 255, 0.92);
+    color: #000;
+}
+
+body.light-mode textarea {
+    background: #fff;
+    color: #000;
+    border: 1px solid #aaa;
+}
